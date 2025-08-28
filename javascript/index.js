@@ -1,34 +1,36 @@
 function updateTime() {
-  //Los Angeles
-  let losAngelesElement = document.querySelector("#los-angeles");
+  //Hawaii
+  let hawaiiElement = document.querySelector("#hawaii");
+  let hawaiiDateElement = hawaiiElement.querySelector(".date");
+  let hawaiiTimeElement = hawaiiElement.querySelector(".time");
+  let hawaiiTime = moment().tz("US/Hawaii");
+
+  hawaiiDateElement.innerHTML = hawaiiTime.format("MMMM Do YYYY");
+  hawaiiTimeElement.innerHTML = hawaiiTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+
+  //Addis Ababa
+  let losAngelesElement = document.querySelector("#addis-ababa");
   let losAngelesDateElement = losAngelesElement.querySelector(".date");
   let losAngelesTimeElement = losAngelesElement.querySelector(".time");
-  let losAngelesTime = moment().tz("US/Pacific");
+  let losAngelesTime = moment().tz("Africa/Addis_Ababa");
 
   losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM Do YYYY");
   losAngelesTimeElement.innerHTML = losAngelesTime.format(
     "h:mm:ss [<small>]A[</small>]"
   );
 
-  //Sydney
-  let sydneyElement = document.querySelector("#sydney");
-  let sydneyDateElement = sydneyElement.querySelector(".date");
-  let sydneyTimeElement = sydneyElement.querySelector(".time");
-  let sydneyTime = moment().tz("Australia/Sydney");
+  //Auckland
+  let aucklandElement = document.querySelector("#auckland");
+  let aucklandDateElement = aucklandElement.querySelector(".date");
+  let aucklandTimeElement = aucklandElement.querySelector(".time");
+  let aucklandTime = moment().tz("Pacific/Auckland");
 
-  sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
-  sydneyTimeElement.innerHTML = sydneyTime.format(
+  aucklandDateElement.innerHTML = aucklandTime.format("MMMM Do YYYY");
+  aucklandTimeElement.innerHTML = aucklandTime.format(
     "h:mm:ss [<small>]A[</small>]"
   );
-
-  //Paris
-  let parisElement = document.querySelector("#paris");
-  let parisDateElement = parisElement.querySelector(".date");
-  let parisTimeElement = parisElement.querySelector(".time");
-  let parisTime = moment().tz("Europe/Paris");
-
-  parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
-  parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
 }
 
 function updateCity(event) {
@@ -51,7 +53,8 @@ function updateCity(event) {
             <div class="date">${cityDateElement}</div>
         </div>
         <div class="time">${cityTimeElement}</div>
-    </div>`;
+    </div>
+    <a href="/">All Cities</a>`;
   }
 }
 
